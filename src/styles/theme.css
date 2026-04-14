@@ -1,0 +1,262 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Makati Milk Bank Design System */
+  --font-size: 16px;
+
+  /* Brand Colors */
+  --primary: #1D9E75;
+  --primary-foreground: #ffffff;
+  --secondary: #378ADD;
+  --secondary-foreground: #ffffff;
+  --warning: #BA7517;
+  --warning-foreground: #ffffff;
+  --danger: #D85A30;
+  --danger-foreground: #ffffff;
+  --neutral: #888780;
+  --neutral-foreground: #ffffff;
+
+  /* Background & Surface */
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
+
+  /* Badge Colors */
+  --badge-active: #10b981;
+  --badge-active-bg: #d1fae5;
+  --badge-pasteurized: #378ADD;
+  --badge-pasteurized-bg: #dbeafe;
+  --badge-dispensed: #f59e0b;
+  --badge-dispensed-bg: #fef3c7;
+  --badge-expired: #ef4444;
+  --badge-expired-bg: #fee2e2;
+
+  /* UI Elements */
+  --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
+  --accent: #f9fafb;
+  --accent-foreground: #1a1a1a;
+  --destructive: #D85A30;
+  --destructive-foreground: #ffffff;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --input-background: #ffffff;
+  --switch-background: #d1d5db;
+  --ring: #1D9E75;
+
+  /* Typography */
+  --text-heading: 24px;
+  --text-subheading: 18px;
+  --text-body: 14px;
+  --text-caption: 12px;
+  --font-weight-bold: 700;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+
+  /* Border Radius */
+  --radius: 0.5rem;
+
+  /* Sidebar */
+  --sidebar: #f9fafb;
+  --sidebar-foreground: #1a1a1a;
+  --sidebar-primary: #1D9E75;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f3f4f6;
+  --sidebar-accent-foreground: #1a1a1a;
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: #1D9E75;
+}
+
+.dark {
+  /* Makati Milk Bank Dark Mode - Professional Medical Monitoring System */
+
+  /* Background Colors */
+  --background: #0F1117;
+  --background-secondary: #1A1D27;
+  --background-tertiary: #141720;
+  --card: #1E2130;
+  --popover: #1E2130;
+
+  /* Text Colors */
+  --foreground: #F0F2F8;
+  --card-foreground: #F0F2F8;
+  --popover-foreground: #F0F2F8;
+
+  /* Brand Colors - Stay Vibrant */
+  --primary: #1D9E75;
+  --primary-foreground: #ffffff;
+  --primary-glow: rgba(29, 158, 117, 0.12);
+  --secondary: #378ADD;
+  --secondary-foreground: #ffffff;
+  --warning: #EF9F27;
+  --warning-foreground: #0F1117;
+  --danger: #D85A30;
+  --danger-foreground: #ffffff;
+  --danger-tint: rgba(216, 90, 48, 0.08);
+  --neutral: #9CA3B8;
+  --neutral-foreground: #0F1117;
+
+  /* Badge Colors - Vibrant for Dark Mode */
+  --badge-active: #1D9E75;
+  --badge-active-bg: rgba(29, 158, 117, 0.15);
+  --badge-pasteurized: #378ADD;
+  --badge-pasteurized-bg: rgba(55, 138, 221, 0.15);
+  --badge-dispensed: #EF9F27;
+  --badge-dispensed-bg: rgba(239, 159, 39, 0.15);
+  --badge-expired: #ef4444;
+  --badge-expired-bg: rgba(239, 68, 68, 0.15);
+
+  /* UI Elements */
+  --muted: #1A1D27;
+  --muted-foreground: #9CA3B8;
+  --text-muted: #5C6480;
+  --accent: #252837;
+  --accent-foreground: #F0F2F8;
+  --destructive: #D85A30;
+  --destructive-foreground: #ffffff;
+  --border: #2A2D3E;
+  --input: #2A2D3E;
+  --input-background: #13151F;
+  --switch-background: #2A2D3E;
+  --ring: #1D9E75;
+
+  /* Special UI */
+  --table-row-alt: #141720;
+  --hover-overlay: #2A2D3E;
+
+  /* Typography remains same */
+  --font-weight-bold: 700;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+
+  /* Sidebar - Deep Navy */
+  --sidebar: #13151F;
+  --sidebar-foreground: #F0F2F8;
+  --sidebar-primary: #1D9E75;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(29, 158, 117, 0.12);
+  --sidebar-accent-foreground: #F0F2F8;
+  --sidebar-border: #2A2D3E;
+  --sidebar-ring: #1D9E75;
+  --sidebar-hover: #2A2D3E;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-danger: var(--danger);
+  --color-danger-foreground: var(--danger-foreground);
+  --color-neutral: var(--neutral);
+  --color-neutral-foreground: var(--neutral-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-badge-active: var(--badge-active);
+  --color-badge-active-bg: var(--badge-active-bg);
+  --color-badge-pasteurized: var(--badge-pasteurized);
+  --color-badge-pasteurized-bg: var(--badge-pasteurized-bg);
+  --color-badge-dispensed: var(--badge-dispensed);
+  --color-badge-dispensed-bg: var(--badge-dispensed-bg);
+  --color-badge-expired: var(--badge-expired);
+  --color-badge-expired-bg: var(--badge-expired-bg);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /**
+  * Default typography styles for HTML elements (h1-h4, p, label, button, input).
+  * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
+  */
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  h1 {
+    font-size: var(--text-heading);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.4;
+  }
+
+  h2 {
+    font-size: var(--text-subheading);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.4;
+  }
+
+  h3 {
+    font-size: var(--text-body);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h4 {
+    font-size: var(--text-caption);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  p {
+    font-size: var(--text-body);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.6;
+  }
+
+  label {
+    font-size: var(--text-body);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  button {
+    font-size: var(--text-body);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  input {
+    font-size: var(--text-body);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+  }
+}
