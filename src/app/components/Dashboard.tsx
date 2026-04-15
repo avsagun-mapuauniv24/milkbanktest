@@ -1,18 +1,13 @@
 import React from 'react';
+import { TrendingUp, Package, Users, Baby, Activity } from 'lucide-react';
 import { StatCard } from './StatCard';
 import { ProgressBar } from './ProgressBar';
 import { Badge } from './Badge';
 import { TopBar } from './TopBar';
+import { Card } from './Card';
 
 export function Dashboard() {
   const [showWelcome, setShowWelcome] = React.useState(true);
-
-  const currentDate = new Date().toLocaleDateString('en-US', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
 
   const stats = {
     totalDonated: 15420,
@@ -28,45 +23,47 @@ export function Dashboard() {
   };
 
   const recentActivities = [
-    { time: '10:23 AM', action: 'New Donation', details: 'Donor #D-2041 - 500 mL', status: 'active' as const },
-    { time: '09:45 AM', action: 'Pasteurization Complete', details: 'Batch #MB-2026-041', status: 'pasteurized' as const },
-    { time: '09:12 AM', action: 'Milk Dispensed', details: 'Beneficiary #B-1523 - 250 mL', status: 'dispensed' as const },
-    { time: '08:30 AM', action: 'SMS Sent', details: 'Reminder to Donor #D-1892', status: 'dispensed' as const },
-    { time: '08:05 AM', action: 'New Donation', details: 'Donor #D-1765 - 350 mL', status: 'active' as const },
+    { time: '10:23 AM', action: 'New Donation', details: 'Donor #D-2041 - 500 mL', status: 'active' as const, icon: '➕' },
+    { time: '09:45 AM', action: 'Pasteurization Complete', details: 'Batch #MB-2026-041', status: 'pasteurized' as const, icon: '✓' },
+    { time: '09:12 AM', action: 'Milk Dispensed', details: 'Beneficiary #B-1523 - 250 mL', status: 'dispensed' as const, icon: '📦' },
+    { time: '08:30 AM', action: 'SMS Sent', details: 'Reminder to Donor #D-1892', status: 'dispensed' as const, icon: '💬' },
+    { time: '08:05 AM', action: 'New Donation', details: 'Donor #D-1765 - 350 mL', status: 'active' as const, icon: '➕' },
   ];
 
   return (
-    <div className="space-y-6">
-      {/* Top Bar with Theme Toggle */}
-      <div className="-mx-8 -mt-8 mb-6">
-        <TopBar title="Dashboard" subtitle={currentDate} />
+    <div className="space-y-8 pb-8">
+      {/* Top Bar */}
+      <div className="-mx-8 -mt-8 mb-8">
+        <TopBar />
       </div>
 
       {/* Welcome Banner */}
       {showWelcome && (
-        <div className="bg-gradient-to-r from-primary to-secondary text-white rounded-lg p-6 relative overflow-hidden">
+        <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-teal-600/30 via-cyan-600/20 to-blue-700/30 border border-teal-500/50 p-6 backdrop-blur">
           <button
             onClick={() => setShowWelcome(false)}
-            className="absolute top-4 right-4 text-white/80 hover:text-white transition-colors"
+            className="absolute top-4 right-4 text-white/80 hover:text-white transition-colors text-xl"
           >
             ✕
           </button>
-          <h2 className="text-white mb-2">Welcome to Makati Milk Bank Inventory System</h2>
-          <p className="text-white/90 mb-4">
-            System is online and running smoothly. Try the theme toggle in the top bar to switch between light and dark modes!
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-white/10 rounded-lg p-3 backdrop-blur-sm">
-              <p className="text-white/80" style={{ fontSize: 'var(--text-caption)' }}>Quick Tips:</p>
-              <p className="text-white">Use top bar theme toggle</p>
-            </div>
-            <div className="bg-white/10 rounded-lg p-3 backdrop-blur-sm">
-              <p className="text-white/80" style={{ fontSize: 'var(--text-caption)' }}>Try:</p>
-              <p className="text-white">Instant light/dark switch</p>
-            </div>
-            <div className="bg-white/10 rounded-lg p-3 backdrop-blur-sm">
-              <p className="text-white/80" style={{ fontSize: 'var(--text-caption)' }}>Explore:</p>
-              <p className="text-white">All pages adapt automatically</p>
+          <div className="max-w-2xl">
+            <h2 className="text-white text-xl font-bold mb-2">Welcome to Makati Milk Bank Inventory System 🥛</h2>
+            <p className="text-white/80 mb-4">
+              Your modern admin dashboard for managing milk donations, inventory, and beneficiary distribution. System is online and running smoothly.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <div className="bg-white/10 rounded-lg p-3 backdrop-blur-sm border border-white/10">
+                <p className="text-white/70 text-xs font-semibold mb-1">🎨 Modern Design</p>
+                <p className="text-white text-sm">Dark theme with teal/green accents</p>
+              </div>
+              <div className="bg-white/10 rounded-lg p-3 backdrop-blur-sm border border-white/10">
+                <p className="text-white/70 text-xs font-semibold mb-1">⚡ Real-time Updates</p>
+                <p className="text-white text-sm">Live dashboard metrics</p>
+              </div>
+              <div className="bg-white/10 rounded-lg p-3 backdrop-blur-sm border border-white/10">
+                <p className="text-white/70 text-xs font-semibold mb-1">📊 Analytics Ready</p>
+                <p className="text-white text-sm">Detailed reports & insights</p>
+              </div>
             </div>
           </div>
         </div>
@@ -76,76 +73,99 @@ export function Dashboard() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
           label="Total Donated"
-          value={`${stats.totalDonated} mL`}
-          valueColor="#10b981"
+          value={`${stats.totalDonated}`}
+          icon={<TrendingUp className="w-5 h-5 text-teal-400" />}
           trend="↑ 12% from last week"
+          gradient="teal"
         />
         <StatCard
           label="Pasteurized"
-          value={`${stats.pasteurized} mL`}
-          valueColor="#378ADD"
+          value={`${stats.pasteurized}`}
+          icon={<Package className="w-5 h-5 text-cyan-400" />}
           trend="↑ 8% from last week"
+          gradient="cyan"
         />
         <StatCard
           label="Dispensed"
-          value={`${stats.dispensed} mL`}
-          valueColor="#f59e0b"
+          value={`${stats.dispensed}`}
+          icon={<Activity className="w-5 h-5 text-purple-400" />}
           trend="↑ 5% from last week"
+          gradient="purple"
         />
         <StatCard
           label="SMS Sent Today"
           value={stats.smsSent}
-          valueColor="#ef4444"
+          icon={<Users className="w-5 h-5 text-teal-400" />}
           trend="47 messages delivered"
+          gradient="teal"
         />
       </div>
 
       {/* Milk Stage Overview */}
-      <div className="bg-card border border-border rounded-lg p-6">
-        <h2 className="mb-6">Milk Stage Overview</h2>
-        <div className="space-y-5">
+      <Card className="p-6">
+        <div className="mb-6">
+          <h2 className="text-white text-xl font-bold mb-1">Milk Stage Overview</h2>
+          <p className="text-slate-400 text-sm">Current inventory distribution by processing stage</p>
+        </div>
+        <div className="space-y-6">
           <ProgressBar
             label="Donated"
             value={milkStages.donated.current}
             max={milkStages.donated.max}
-            color="#10b981"
+            color="teal"
           />
           <ProgressBar
             label="Pasteurized"
             value={milkStages.pasteurized.current}
             max={milkStages.pasteurized.max}
-            color="#378ADD"
+            color="cyan"
           />
           <ProgressBar
             label="Dispensed"
             value={milkStages.dispensed.current}
             max={milkStages.dispensed.max}
-            color="#f59e0b"
+            color="purple"
           />
         </div>
-      </div>
+      </Card>
 
       {/* Recent Activity Table */}
-      <div className="bg-card dark:bg-[#1E2130] border border-border dark:border-[#2A2D3E] rounded-lg overflow-hidden">
-        <div className="p-6 border-b border-border dark:border-[#2A2D3E]">
-          <h2 className="dark:text-white">Recent Activity</h2>
+      <Card className="overflow-hidden">
+        <div className="px-6 py-6 border-b border-slate-700/50 flex items-center justify-between">
+          <div>
+            <h2 className="text-white text-xl font-bold mb-1">Recent Activity</h2>
+            <p className="text-slate-400 text-sm">Latest system activities and updates</p>
+          </div>
+          <Activity className="text-teal-400 w-6 h-6" />
         </div>
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-muted dark:bg-[#1A1D27]">
-              <tr>
-                <th className="px-6 py-3 text-left font-medium text-foreground dark:text-[#9CA3B8] uppercase tracking-wider" style={{ fontSize: 'var(--text-caption)' }}>Time</th>
-                <th className="px-6 py-3 text-left font-medium text-foreground dark:text-[#9CA3B8] uppercase tracking-wider" style={{ fontSize: 'var(--text-caption)' }}>Action</th>
-                <th className="px-6 py-3 text-left font-medium text-foreground dark:text-[#9CA3B8] uppercase tracking-wider" style={{ fontSize: 'var(--text-caption)' }}>Details</th>
-                <th className="px-6 py-3 text-left font-medium text-foreground dark:text-[#9CA3B8] uppercase tracking-wider" style={{ fontSize: 'var(--text-caption)' }}>Status</th>
+            <thead>
+              <tr className="bg-slate-700/30 border-b border-slate-700/50">
+                <th className="px-6 py-4 text-left font-semibold text-teal-300 text-sm uppercase tracking-wider">Time</th>
+                <th className="px-6 py-4 text-left font-semibold text-teal-300 text-sm uppercase tracking-wider">Action</th>
+                <th className="px-6 py-4 text-left font-semibold text-teal-300 text-sm uppercase tracking-wider">Details</th>
+                <th className="px-6 py-4 text-left font-semibold text-teal-300 text-sm uppercase tracking-wider">Status</th>
               </tr>
             </thead>
             <tbody>
               {recentActivities.map((activity, index) => (
-                <tr key={index} className="bg-muted dark:bg-[#1A1D27] hover:bg-muted/50 dark:hover:bg-[#2A2D3E] transition-colors border-t border-border dark:border-[#2A2D3E]">
-                  <td className="px-6 py-4 text-muted-foreground dark:text-[#9CA3B8]">{activity.time}</td>
-                  <td className="px-6 py-4 text-foreground dark:text-white">{activity.action}</td>
-                  <td className="px-6 py-4 text-muted-foreground dark:text-[#9CA3B8]">{activity.details}</td>
+                <tr
+                  key={index}
+                  className="border-b border-slate-700/50 hover:bg-slate-700/20 transition-colors last:border-b-0 group"
+                >
+                  <td className="px-6 py-4">
+                    <span className="text-slate-300 text-sm font-medium">{activity.time}</span>
+                  </td>
+                  <td className="px-6 py-4">
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg">{activity.icon}</span>
+                      <span className="text-slate-200 font-medium">{activity.action}</span>
+                    </div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <span className="text-slate-400 text-sm">{activity.details}</span>
+                  </td>
                   <td className="px-6 py-4">
                     <Badge variant={activity.status} />
                   </td>
@@ -154,7 +174,7 @@ export function Dashboard() {
             </tbody>
           </table>
         </div>
-      </div>
+      </Card>
     </div>
   );
 }

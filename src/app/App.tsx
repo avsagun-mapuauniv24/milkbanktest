@@ -46,18 +46,18 @@ export default function App() {
   }
 
   return (
-    <div className="size-full flex bg-background dark:bg-[#0F1117]">
+    <div className="size-full flex bg-slate-950">
       {/* Sidebar */}
       <Sidebar activeItem={currentView} onNavigate={handleNavigate} />
 
       {/* Main Content with Transition */}
-      <div className="flex-1 ml-[220px] overflow-auto">
+      <div className="flex-1 ml-64 overflow-auto bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950">
         <div
           className={`transition-all duration-300 ${
             isTransitioning ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'
           }`}
         >
-          <div className="p-8">
+          <div className="p-8 max-w-7xl mx-auto">
             {currentView === 'dashboard' && <Dashboard />}
             {currentView === 'inventory' && <Inventory />}
             {currentView === 'donors' && <Donors />}
