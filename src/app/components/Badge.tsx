@@ -8,13 +8,13 @@ export interface BadgeProps {
 }
 
 export function Badge({ variant, children }: BadgeProps) {
-  const baseStyles = 'inline-flex items-center px-2.5 py-0.5 rounded-full font-medium';
+  const baseStyles = 'inline-flex items-center px-3 py-1.5 rounded-full font-semibold text-xs uppercase tracking-wider transition-colors';
 
   const variantStyles = {
-    active: 'bg-badge-active-bg text-badge-active',
-    pasteurized: 'bg-badge-pasteurized-bg text-badge-pasteurized',
-    dispensed: 'bg-badge-dispensed-bg text-badge-dispensed',
-    expired: 'bg-badge-expired-bg text-badge-expired',
+    active: 'bg-gradient-to-r from-teal-500/20 to-teal-600/20 text-teal-300 border border-teal-500/30 hover:border-teal-500/50',
+    pasteurized: 'bg-gradient-to-r from-cyan-500/20 to-blue-600/20 text-cyan-300 border border-cyan-500/30 hover:border-cyan-500/50',
+    dispensed: 'bg-gradient-to-r from-purple-500/20 to-indigo-600/20 text-purple-300 border border-purple-500/30 hover:border-purple-500/50',
+    expired: 'bg-gradient-to-r from-red-500/20 to-orange-600/20 text-red-300 border border-red-500/30 hover:border-red-500/50',
   };
 
   const defaultLabels = {
